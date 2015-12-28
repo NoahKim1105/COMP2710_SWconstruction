@@ -1,0 +1,245 @@
+
+Unit Test 1: void login_process(string& userName)
+	Case 1.1: Enter a valid username when prompted
+Please enter your name: 	Case 1.1 Passed...
+
+Unit Test 2: void init_character(string userName, player& userPlayer)
+	Case 2.1: Initialize character to legal values with a given username
+	Case 2.1 Passed...
+
+Unit Test 3: void create_puzzle_list(puzzleHead p_head)
+	Case 3.1: Initialize puzzle list properly
+	Case 3.1 Passed...
+
+Unit Test 4: void init_encounters(encounterPtr& encArray)
+	Case 4.1: Properly initialize encounters array
+	Case 4.1 Passed...
+
+Unit Test 5: void view_scores(scoreHead sBoard)
+	Case 5.1: Should display 2 scores from list with termination line
+The top 2 high scores are:
+1. GLaDOS: 9001
+2. Chell: 10
+-No More Scores to Show-
+	Case 5.1 Passed...
+
+Unit Test 6: u_short load_scores(scoreHead& sBoard, const char filename[])
+	Case 6.1: Attempt to load scores from a file that doesn't exist
+	Case 6.1 Passed...
+	Case 6.2: Attempt to load scores from a real file scoreboardTESTread.txt
+	Case 6.2 Passed...
+
+Unit Test 7: u_short save_scores(scoreHead sBoard, const char filename[])
+	Case 7.1: Save scores to a file called scoreboardTESTwrite.txt
+	Case 7.1 Passed...
+
+Unit Test 8: u_short add_new_score(scoreHead& sBoard, int userScore, string userName)
+	Case 8.1: Add new score to an empty scoreboard
+	Case 8.1 Passed...
+	Case 8.2: Add new score to the end of a scoreboard
+	Case 8.2 Passed...
+	Case 8.3: Add new score to start of a scoreboard
+	Case 8.3 Passed...
+	Case 8.4: Add new score to middle of a scoreboard
+	Case 8.4 Passed...
+	Case 8.5: Attempt to add an invalid score (0)
+	Case 8.5 Passed...
+	Case 8.6: Attempt to add score to end of list when list is full
+	Case 8.6 Passed...
+	Case 8.7: Add new score in the middle of a full list
+	Case 8.7 Passed...
+
+Unit Test 9: u_short delete_score_tail(scoreHead& sBoard)
+	Case 9.1: Delete tail of list with elements in it
+	Case 9.1 Passed...
+	Case 9.2: Delete the only node left in a list (Single-element list)
+	Case 9.2 Passed...
+	Case 9.3: Attempt to delete an empty list
+	Case 9.3 Passed...
+
+Unit Test 10: void calculate_score(player& userPlayer)
+	Case 10.1: Calculate normal score
+	Case 10.1 Passed...
+	Case 10.2: Calculate negative score (and fix it to 0, no negatives please)
+	Case 10.2 Passed...
+
+Unit Test 11: u_short valid_int_input(void)
+	Case 11.1: Enter anything and program will print what you entered (as interpreted by the game)
+	Please enter numbers only: 	Please enter numbers only: 	Please enter 0 or positive numbers only: 	You entered: 2
+	Case 11.1 Passed...
+
+Unit Test 12: void view_character(player userPlayer)
+	Case 12.1: Displays a typical player info set
+You have:
+
+Money: $1
+Intelligence: 10
+Time left: 5 turns
+
+You are 3 steps from the goal.
+	Case 12.1 Passed...
+
+Unit Test 13: void read_paper(player& userPlayer)
+	Case 13.1: Player reads a paper, attributes updated
+You read some nonsense claiming that you are being forced to play this game by an AI overlord bent on testing humans forever, that she's codenamed GLaDOS, she says 2 + 2 = 10 (in BASE 4!), and that the cake is a lie. 
+You gain 5 intelligence, but lose a unit of time.
+	Case 13.1 Passed...
+
+Unit Test 14: void search_change(player& userPlayer)
+	Case 14.1: Player looks for change, attributes updated
+You search through the couches of Shelby desperatly for loose change. 
+You gain $6! But you lose a unit of time.
+	Case 14.1 Passed...
+
+Unit Test 15: void move_forward(player& userPlayer, encounterPtr encArray, puzzleHead p_head)
+	Case 15.1: Nothing happens encounter, moves forward 1
+You move forward and...
+OH MY GOSH, NOTHING HAPPENS...
+
+You LOSE 1 steps left from the goal
+You LOSE 1 units of time
+
+	Case 15.1 Passed...
+	Case 15.2: Puzzle encounter, a puzzle should appear. Answer correctly or wrong, does not matter
+You move forward and...
+It's puzzle time!
+
+What do you do when life gives you lemons (according to Aperture Science)?
+1. Make lemonade
+2. Do what Cave Johnson said and make combustible lemons to burn people's houses down
+3. Go to Food Network and become the next Food Network Star...that really likes lemons
+
+Choose wisely: *** YOU GOT IT RIGHT! Good Job...are you surprised?
+You GAIN 5 IQ points
+You LOSE 1 units of time
+You LOSE 1 steps left from the goal
+
+
+	Case 15.2 Passed...
+	Case 15.3: Professor encounter, a professor will appear and modifiy stats randomly
+You move forward and...
+You see a tall shadowy figure approach you...
+
+You find a helpful professor who provides you insight into your current situation
+
+The professor takes up quite a bit of time...
+You GAIN 1 IQ points
+You LOSE 2 units of time
+You LOSE 1 steps left from the goal
+
+	Case 15.3 Passed...
+	Case 15.4: Grad student encounter, only time will be lost
+You move forward and...
+You see a short figure approach you...
+
+You run into your primary arch nemesis!!! He says his usual speech about how not only will he do better than you, but he will also rule the world, the galaxy, and then the universe. Once he started talking about space you got really interested though so instead of moving onward with your quest, you listen to your nemesis. A slow clap for you, hero
+You LOSE 2 units of time
+You LOSE 1 steps left from the goal
+
+	Case 15.4 Passed...
+	Case 15.5: Grunt work encounter, loses intel and time
+You move forward and...
+A small elfish figure hops towards you with something in his hand...
+
+It's a grunt, he gives you a creepy smile and proceeds to throw sheets of paper at you! Each one is something worse and more mediocre of a task than the last! You scream for help, no, no, NO, PLEASE NO MORE, NO MORE WORK!!!, NOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+Whelp, that took some time to do, but you got it done...sadly, you get no compensation
+You LOSE 5 IQ points
+You LOSE 3 units of time
+You LOSE 1 steps left from the goal
+
+	Case 15.5 Passed...
+	Case 15.6: Grade papers encounter, gain money but lose time
+You move forward and...
+A flying box of papers approaches your position!
+
+You got papers to grade! But it's all for that 1000-level class...so you don't get paid a lot
+
+Wow, really, you took THAT LONG to grade? Those papers must've been really tough...hopefully it'll all be worth it right? Maybe the Princess will have more money than you, then you don't have to grade...
+You GAIN 1 dollars
+You LOSE 4 units of time
+You LOSE 1 steps left from the goal
+
+	Case 15.6 Passed...
+
+Unit Test 16: u_short generate_encounter_ID(void)
+	Case 16.1: Generate valid encounter ID. TEST REPEATS TEN TIMES. Each ID is printed
+ID Generated: 2
+ID Generated: 4
+ID Generated: 4
+ID Generated: 5
+ID Generated: 5
+ID Generated: 2
+ID Generated: 1
+ID Generated: 0
+ID Generated: 0
+ID Generated: 1
+	Case 16.1 Passed...
+
+Unit Test 17: void ask_puzzle(player& userPlayer, puzzleHead p_head)
+	Case 17.1: Ask various puzzles they should modify player attributes. TEST REPEATS THREE TIMES
+Take a LEAP forward if you win this one... Who is the most evilest, rage-inducing, OVERALL BADDEST, League of Legends champion ever?
+1. Sona
+2. The cute and cuddly Teemo
+3. URF the manatee
+4. Nocturne
+5. Really? LoL? Who plays that...
+ 
+Choose wisely: *** YOU GOT IT RIGHT! Good Job...are you surprised?
+You LOSE 1 units of time
+You LOSE 3 steps left from the goal
+
+What does 2 + 2 = ? ... IN BASE 4?
+1. 0
+2. 4
+3. 10
+4. 16
+5. REALLY? MATH? At a time like THIS?!
+
+Choose wisely: *** YOU GOT IT RIGHT! Good Job...are you surprised?
+You GAIN 10 dollars
+You LOSE 1 units of time
+You LOSE 1 steps left from the goal
+
+The Holy Overlord Urf the Manatee appears and decides to be nice to you, but first you answer his question: What does his name truly mean?
+1. Unruly Rascals Federation
+2. Unsubmerged Reptile of Fire
+3. Ultra Rapid Fire
+4. Used RAM for Free
+
+Choose wisely: *** YOU GOT IT WRONG!? HOW?? Oh well, better luck next time eh?
+You LOSE 5 dollars
+You LOSE 5 IQ points
+You LOSE 1 units of time
+You LOSE 1 steps left from the goal
+
+	Case 17.1 Passed...
+
+Unit Test 18: u_short display_sys_menu(void)
+	Case 18.1: Display system menu and get user's VALID choice, will repeat until choice is valid
+
+1) Start a New Game of Shelby and Dragons!
+2) View Top 10 High Scores
+3) Quit
+
+	Please choose an option: 	That option does not exist, please try again
+
+
+1) Start a New Game of Shelby and Dragons!
+2) View Top 10 High Scores
+3) Quit
+
+	Please choose an option: 	Please enter 0 or positive numbers only: 	Please enter numbers only: 
+	Case 18.1 Passed...
+
+Unit Test 19: u_short display_game_menu(void)
+	Case 19.1: Display game menu and get user's VALID choice, will repeat until choice is valid
+
+1) Move forward (could be risky...)
+2) Read technical papers (boost intelligence, takes time, could be fun)
+3) Search for loose change (boost money, takes time, maybe find a sword in a chest...)
+4) View character stats
+5) Quit this game and return to Main Menu (why would you ever do that?)
+
+	Please choose an action: 
+	Case 19.1 Passed...
